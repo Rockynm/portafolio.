@@ -1,60 +1,91 @@
-/* Javascript */
+/* Javascript Ultimate*/
+
 
 function encriptador(){
 
     let dato = document.getElementsByClassName("seccion_entrada_de_texto")[0];
     let datos = dato.value;
-    
-    let textoEncriptado = "";
 
-    for(let letra of datos){
-        if(letra == "a"){
-            textoEncriptado += "ai";
-        } else if (letra == "e"){
-            textoEncriptado += "enter";
-        } else if (letra == "i"){
-            textoEncriptado += "imes";
-        } else if (letra == "o"){
-            textoEncriptado += "ober";
-        } else if (letra == "u"){
-            textoEncriptado += "ufat";
-        } else {
-            textoEncriptado += letra;
+    const mayusculas = /[A-Z]/;
+    const caracteresEspeciales = /[!@#$%^&*(),.?":{}|<>+-]/;
+
+    if (mayusculas.test(datos) || caracteresEspeciales.test(datos)) {
+        alert("Ingresa solo letras en minúsculas y sin acentos");
+
+    } else if (!mayusculas.test(datos) && !caracteresEspeciales.test(datos)) {
+
+        let textoEncriptado = "";
+
+        for(let letra of datos){
+            if(letra == "a"){
+                textoEncriptado += "ai";
+            } else if (letra == "e"){
+                textoEncriptado += "enter";
+            } else if (letra == "i"){
+                textoEncriptado += "imes";
+            } else if (letra == "o"){
+                textoEncriptado += "ober";
+            } else if (letra == "u"){
+                textoEncriptado += "ufat";
+            } else {
+                textoEncriptado += letra;
+            }
         }
-    }
-    console.log(textoEncriptado);
+        console.log(textoEncriptado);
 
-    /* Terminal */
-    let salida = document.getElementsByClassName("texto_aviso3")[0];
-    
-    if (salida) {
-        salida.innerHTML = textoEncriptado;
-    } else {
-        console.error("El elemento con la clase 'texto_aviso3' no se encontró.");
-    }
+        /* Terminal */
+        let salida = document.getElementsByClassName("texto_aviso3")[0];
+        
+        if (salida) {
+            salida.innerHTML = textoEncriptado;
+        } else {
+            console.error("El elemento con la clase 'texto_aviso3' no se encontró.");
+        }
 
-    /* Terminal */
+        /* Terminal */
+    };
+
 };
+
+
+
+
+
+
+
+
+
 
 function desencriptador(){
 
     let dato = document.getElementsByClassName("seccion_entrada_de_texto")[0];
     let datos = dato.value;
 
-    let textoDesencriptado = datos.replace(/ai/g, "a").replace(/enter/g, "e").replace(/imes/g, "i").replace(/ober/g, "o").replace(/ufat/g, "u");
 
-    console.log(textoDesencriptado);
+    const mayusculas = /[A-Z]/;
+    const caracteresEspeciales = /[!@#$%^&*(),.?":{}|<>+-]/;
+
+    if (mayusculas.test(datos) || caracteresEspeciales.test(datos)) {
+        alert("Ingresa solo letras en minúsculas y sin acentos");
+
+    } else if (!mayusculas.test(datos) && !caracteresEspeciales.test(datos)) {
+
+        let textoDesencriptado = datos.replace(/ai/g, "a").replace(/enter/g, "e").replace(/imes/g, "i").replace(/ober/g, "o").replace(/ufat/g, "u");
+
+        console.log(textoDesencriptado);
+
+        /* Terminal */
+        let salida = document.getElementsByClassName("texto_aviso3")[0];
+        
+        if (salida) {
+            salida.innerHTML = textoDesencriptado;
+        } else {
+            console.error("El elemento con la clase 'texto_aviso3' no se encontró.");
+        }
 
     /* Terminal */
-    let salida = document.getElementsByClassName("texto_aviso3")[0];
-    
-    if (salida) {
-        salida.innerHTML = textoDesencriptado;
-    } else {
-        console.error("El elemento con la clase 'texto_aviso3' no se encontró.");
-    }
 
-    /* Terminal */
+    };
 };
 
 
